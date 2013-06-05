@@ -7,8 +7,8 @@ public class Task {
 	private int id;
 	private String title;
 	private String description;
-	private String creationDate;
-	private String lastChangedDate;
+	private Calendar creationDate;
+	private Calendar lastChangedDate;
 	private String state;
 	
 	public int getId() {
@@ -35,19 +35,19 @@ public class Task {
 		this.description = description;
 	}
 	
-	public String getCreationDate() {
+	public Calendar getCreationDate() {
 		return creationDate;
 	}
 	
-	public void setCreationDate(String creationDate) {
+	public void setCreationDate(Calendar creationDate) {
 		this.creationDate = creationDate;
 	}
 	
-	public String getLastChangedDate() {
+	public Calendar getLastChangedDate() {
 		return lastChangedDate;
 	}
 	
-	public void setLastChangedDate(String lastChangedDate) {
+	public void setLastChangedDate(Calendar lastChangedDate) {
 		this.lastChangedDate = lastChangedDate;
 	}
 	
