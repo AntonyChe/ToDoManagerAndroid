@@ -45,7 +45,7 @@ public class Utils {
 				         + calendarCreate.getInstance().get(Calendar.DAY_OF_MONTH));
 		
 		values.putNull("lastChangedDate");
-		values.put("state", task.getState());
+		values.put("state", IState.LBL_DONE.equals(task.getState()) ? 1 : 0);
 		
 		database.insert("tasks", "lastChangedDate", values);
 		database.close();
@@ -63,7 +63,7 @@ public class Utils {
 				         + calendarModify.getInstance().get(Calendar.MONTH) + "-" 
 				         + calendarModify.getInstance().get(Calendar.DAY_OF_MONTH));
 		
-		values.put("state", task.getState());
+		values.put("state", IState.LBL_DONE.equals(task.getState()) ? 1 : 0);
 		
 		database.update("tasks", values, "_id", new String[]{String.valueOf(task.getId())});		
 		database.close();
