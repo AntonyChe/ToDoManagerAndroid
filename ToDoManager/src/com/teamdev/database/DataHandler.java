@@ -11,11 +11,11 @@ public class DataHandler extends SQLiteOpenHelper {
 	
 	private final static String DATABASE_CREATE = "create table tasks" + 
 												  "(_id INTEGER primary key autoincrement," +
-												  "_title TEXT not null" +
-												  "_description TEXT" +
-												  "_creationDate TEXT not null" +
-												  "_lastChangedDate TEXT not null" + 
-												  "_state INTEGER not null);";	
+												  "title TEXT not null" +
+												  "description TEXT" +
+												  "creationDate TEXT not null" +
+												  "lastChangedDate TEXT" + 
+												  "state INTEGER not null);";	
 	
 	private final static String DATABASE_UPGRADE = "DROP TABLE IF EXISTS tasks";
 	
