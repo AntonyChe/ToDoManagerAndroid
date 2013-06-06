@@ -3,6 +3,7 @@ package com.teamdev.database;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.StringTokenizer;
 
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -44,10 +45,14 @@ public class Utils {
 						 + calendarCreate.getInstance().get(Calendar.MONTH) + "-" 
 				         + calendarCreate.getInstance().get(Calendar.DAY_OF_MONTH));
 		
-		values.putNull("lastChangedDate");
+		Calendar calendarChanged = task.getLastChangedDate();
+		values.put("lastChangedDate", calendarChanged.getInstance().get(Calendar.YEAR)+ "-" 
+				 + calendarChanged.getInstance().get(Calendar.MONTH) + "-" 
+		         + calendarChanged.getInstance().get(Calendar.DAY_OF_MONTH));
+		
 		values.put("state", IState.LBL_DONE.equals(task.getState()) ? 1 : 0);
 		
-		database.insert("tasks", "lastChangedDate", values);
+		database.insert("tasks", null, values);
 		database.close();
 	}
 	
@@ -117,9 +122,19 @@ public class Utils {
 	private Calendar dateParser(Cursor cursor, int columnIndex) {
 		String date = cursor.getString(columnIndex);
 		Calendar calendar = Calendar.getInstance();
-		calendar.set(Calendar.YEAR, Integer.parseInt(date.substring(0, 4)));
-		calendar.set(Calendar.MONTH, Integer.parseInt(date.substring(5, 7)));
-		calendar.set(Calendar.DAY_OF_MONTH, Integer.parseInt(date.substring(8, date.length())));
+		
+		StringTokenizer st = new StringTokenizer(date, "-");
+		String dates[] = new String[3];
+		int i = 0;
+		while (st.hasMoreTokens()) {
+			dates[i] = st.nextToken();
+			i++;
+		}
+		
+		calendar.set(Calendar.YEAR, Integer.parseInt(dates[0]));
+		calendar.set(Calendar.MONTH, Integer.parseInt(dates[1]));
+		calendar.set(Calendar.DAY_OF_MONTH, Integer.parseInt(dates[2]));
+		
 		
 		return calendar;
 	}
