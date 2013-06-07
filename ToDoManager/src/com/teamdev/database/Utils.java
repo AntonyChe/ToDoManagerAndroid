@@ -70,7 +70,7 @@ public class Utils {
 		
 		values.put("state", IState.LBL_DONE.equals(task.getState()) ? 1 : 0);
 		
-		database.update("tasks", values, "_id", new String[]{String.valueOf(task.getId())});		
+		database.update("tasks", values, "_id='" + task.getId() + "'", null);		
 		database.close();
 	}
 	
