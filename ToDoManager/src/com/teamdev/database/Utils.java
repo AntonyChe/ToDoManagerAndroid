@@ -41,14 +41,14 @@ public class Utils {
 		values.put("description", task.getDescription());
 		
 		Calendar calendarCreate = task.getCreationDate();
-		values.put("creationDate", calendarCreate.getInstance().get(Calendar.YEAR)+ "-" 
-						 + calendarCreate.getInstance().get(Calendar.MONTH) + "-" 
-				         + calendarCreate.getInstance().get(Calendar.DAY_OF_MONTH));
+		values.put("creationDate", calendarCreate.get(Calendar.YEAR)+ "-" 
+						 + calendarCreate.get(Calendar.MONTH) + "-" 
+				         + calendarCreate.get(Calendar.DAY_OF_MONTH));
 		
 		Calendar calendarChanged = task.getLastChangedDate();
-		values.put("lastChangedDate", calendarChanged.getInstance().get(Calendar.YEAR)+ "-" 
-				 + calendarChanged.getInstance().get(Calendar.MONTH) + "-" 
-		         + calendarChanged.getInstance().get(Calendar.DAY_OF_MONTH));
+		values.put("lastChangedDate", calendarChanged.get(Calendar.YEAR)+ "-" 
+				 + calendarChanged.get(Calendar.MONTH) + "-" 
+		         + calendarChanged.get(Calendar.DAY_OF_MONTH));
 		
 		values.put("state", IState.LBL_DONE.equals(task.getState()) ? 1 : 0);
 		
@@ -64,9 +64,9 @@ public class Utils {
 		values.put("description", task.getDescription());
 		
 		Calendar calendarModify = task.getLastChangedDate();
-		values.put("lastChangedDate", calendarModify.getInstance().get(Calendar.YEAR)+ "-" 
-				         + calendarModify.getInstance().get(Calendar.MONTH) + "-" 
-				         + calendarModify.getInstance().get(Calendar.DAY_OF_MONTH));
+		values.put("lastChangedDate", calendarModify.get(Calendar.YEAR)+ "-" 
+				         + calendarModify.get(Calendar.MONTH) + "-" 
+				         + calendarModify.get(Calendar.DAY_OF_MONTH));
 		
 		values.put("state", IState.LBL_DONE.equals(task.getState()) ? 1 : 0);
 		
@@ -77,9 +77,10 @@ public class Utils {
 	public Task getTask(int id) {
 		SQLiteDatabase database = handler.getWritableDatabase();
 		Task task = new Task();
-		String query = "SELECT * FROM tasks WHERE _id=" + String.valueOf(id);
+		String query = "SELECT * FROM tasks WHERE _id='" + String.valueOf(id)+"'";
 		Cursor cursor = database.rawQuery(query, null);
 		while (cursor.moveToNext()) {
+			task.setId(cursor.getInt(0));
 			task.setTitle(cursor.getString(1));
 			task.setDescription(cursor.getString(2));
 			task.setCreationDate(dateParser(cursor, 3));
@@ -93,7 +94,7 @@ public class Utils {
 	
 	public void deleteTask(Task task) {
 		SQLiteDatabase database = handler.getWritableDatabase();
-		database.delete("tasks", "_id", new String[]{String.valueOf(task.getId())});
+		database.delete("tasks", "_id='" + task.getId() + "'", null);
 		database.close();
 		
 	}

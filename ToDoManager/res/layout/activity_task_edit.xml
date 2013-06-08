@@ -1,0 +1,77 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".TaskEditActivity" >
+	
+    
+    <TextView android:text="@string/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    
+   <EditText
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp">
+    </EditText> 
+    
+   <TextView android:text="@string/description"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"/>
+    
+    <EditText 
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+    </EditText> 
+    
+    <TextView
+        android:id="@+id/creation_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/creation_date">
+    </TextView>
+    
+    <TextView
+        android:id="@+id/changed_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/changed_date">
+    </TextView>
+    
+    
+    <CheckBox android:id="@+id/chk_done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    
+    <TextView
+        android:id="@+id/done_undone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/done">
+    </TextView>
+    
+    <Button
+        android:id="@+id/b_delete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/delete">
+    </Button>
+    
+    <Button
+        android:id="@+id/b_ok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ok">
+    </Button>    
+    
+    <Button 
+        android:id="@+id/b_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/cancel">
+    </Button>    
+
+</LinearLayout>

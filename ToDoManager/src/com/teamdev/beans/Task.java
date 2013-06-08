@@ -61,6 +61,6 @@ public class Task {
 	
 	@Override
 	public String toString() {
-		return title + "/" + creationDate.getInstance().get(Calendar.DAY_OF_MONTH)+ "." + creationDate.get(Calendar.DAY_OF_MONTH) + "." + creationDate.get(Calendar.YEAR);
+		return title + "/ " + creationDate.get(Calendar.DAY_OF_MONTH) + "." + (creationDate.get(Calendar.MONTH)+1) + "." + creationDate.get(Calendar.YEAR);
 	}
 }

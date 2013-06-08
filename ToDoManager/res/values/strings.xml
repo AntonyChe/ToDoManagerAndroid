@@ -2,8 +2,18 @@
 <resources>
 
     <string name="app_name">ToDoManager</string>
-    <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="todoList">ToDo List</string>
+    <string name="title">Title:</string>
+    <string name="description">Description:</string>
+    <string name="creation_date">Creation date:</string>
+    <string name="changed_date">Last changed date:</string>
+    <string name="done">Done</string>
+    <string name="delete">Delete</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="title_activity_task_edit">Edit task</string>
+    <string name="addTask">+ Add new task</string>
+    <string name="sort">\u2193 \u2191</string>
 
 </resources>

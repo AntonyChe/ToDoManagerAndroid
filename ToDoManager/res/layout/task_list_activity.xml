@@ -13,6 +13,18 @@
        android:padding="10dip"
        android:textColor="#FF4040"> 
    </TextView>
+   
+   <Button 
+       android:id="@+id/addTask"
+       android:text="@string/addTask"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"/>
+   
+   <Button 
+       android:id="@+id/sort"
+       android:text="@string/sort"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"/>
       
    <ListView
    	   android:id="@android:id/list"
